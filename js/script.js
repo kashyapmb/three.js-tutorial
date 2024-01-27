@@ -16,12 +16,18 @@ document.body.appendChild(renderer.domElement)
 const geometry = new THREE.BoxGeometry(1, 1, 1)
 const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 })
 const cube = new THREE.Mesh(geometry, material)
+const linecube = new THREE.Line(geometry, material)
 scene.add(cube)
+scene.add(linecube)
 
 function animate() {
 	requestAnimationFrame(animate)
+	cube.position.x = 1
+	linecube.position.x = -1
 
-	cube.rotation.x += 0.01
+	linecube.rotation.x += 0.01
+	linecube.rotation.y += 0.01
+	cube.rotation.x += 0.01 
 	cube.rotation.y += 0.01
 
 	renderer.render(scene, camera)
